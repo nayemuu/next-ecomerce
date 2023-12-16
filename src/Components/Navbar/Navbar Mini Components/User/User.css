@@ -1,0 +1,19 @@
+.user-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background-color: hsla(0, 5%, 93%, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.user-container:hover {
+  background-color: hsla(0, 5%, 85%, 1);
+}
+
+.user-icon {
+  font-size: 25px;
+}

@@ -27,11 +27,11 @@ function Card() {
       {/* shopping card */}
       <div
         className={`absolute z-[2] top-0 shopping-card-container ${
-          isHovered ? 'right-1' : 'right-[-32px]'
+          isHovered ? 'right-1' : 'right-[-35px]'
         }`}
       >
         <div
-          className="h-[35px] w-[35px] rounded-full shopping-card flex justify-center items-center"
+          className="h-[35px] w-[35px] rounded-full shopping-card flex justify-center items-center bg-green-200 hover:bg-green-500 text-gray-700 hover:text-white"
           title="add to card"
         >
           <FontAwesomeIcon icon={faCartShopping} />

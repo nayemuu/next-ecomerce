@@ -1,0 +1,9 @@
+.searchbar {
+  outline: none;
+  border: 2px solid #212121;
+  border-radius: 6px;
+}
+
+.searchbar:focus {
+  border: 2px solid #47c32e;
+}
