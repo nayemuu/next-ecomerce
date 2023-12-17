@@ -3,7 +3,35 @@
   border: 2px solid #212121;
   border-radius: 6px;
 }
-
 .searchbar:focus {
   border: 2px solid #47c32e;
+}
+
+.searchbar::-webkit-search-cancel-button {
+  position: relative;
+  right: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 575px) {
+  .searchbar {
+    border: 2px solid hsla(120, 100%, 50%, 0);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 575px) {
+  .searchbar-container {
+    position: absolute;
+    transition: all 0.2s linear;
+  }
+
+  .searchbar-container-inactive {
+    top: -85px;
+    right: 0px;
+  }
+  .searchbar-container-active {
+    top: 72px;
+    right: 0px;
+  }
 }

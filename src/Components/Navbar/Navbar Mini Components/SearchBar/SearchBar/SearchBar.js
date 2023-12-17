@@ -1,22 +1,25 @@
 'use client';
 import './SearchBar.css';
 
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-function SearchBar() {
+function SearchBar({ smSearchBarStatus }) {
   return (
-    <div className="max-w-[600px] w-full relative">
-      <div className="absolute h-full flex items-center text-2xl pl-4">
-        {/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
-        <AiOutlineSearch />
+    <div
+      className={`sm:max-w-[600px] w-full relative searchbar-container searchbar-container ${
+        smSearchBarStatus
+          ? 'searchbar-container-active'
+          : 'searchbar-container-inactive'
+      }`}
+    >
+      <div className="absolute h-full flex items-center text-2xl pl-3 sm:pl-4">
+        <AiOutlineSearch className="cursor-pointer hover:text-green-500" />
       </div>
 
       <input
         type="search"
         placeholder="Search..."
-        className="h-full w-full text-base py-[16px] pl-[44px] searchbar"
+        className="h-full w-full text-base py-[11px] sm:py-[16px] pl-[44px] searchbar"
       />
     </div>
   );
