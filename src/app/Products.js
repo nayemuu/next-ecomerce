@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import productImage from '../../public/images/Products/A52.png';
-import Card from '@/Components/Products/Card/Card';
-import CardOutOfStock from '@/Components/Products/Card/CardOutOfStock';
+import Image from "next/image";
+import productImage from "../../public/images/Products/A52.png";
+import Card from "@/Components/Products/Card/Card";
+import CardOutOfStock from "@/Components/Products/Card/CardOutOfStock";
 
 function Products() {
   return (
@@ -16,7 +16,7 @@ function Products() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 items-center">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 items-center gap-5 place-items-center">
           <Card />
           <Card />
           <Card />
