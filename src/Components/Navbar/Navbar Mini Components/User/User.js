@@ -4,9 +4,14 @@ import { FaUser } from 'react-icons/fa';
 import './User.css';
 import Dropdown from './Dropdown/Dropdown';
 import { useEffect, useRef, useState } from 'react';
+import SignUpForm from '@/Components/Inputs/Form/SignUpForm/SignUpForm';
+import ModalRightToLeft from '@/Components/Modal/ModalRightToLeft';
 
 function User() {
   const [userDropdown, setUserDropdown] = useState(false);
+  // const [signUp, setSignUp] = useState(false);
+  // onClick={() => setSignUp(!signUp)}
+  const [logIn, setLogIn] = useState(false);
 
   const userDropdownHandler = () => {
     // console.log('userDropdownHandler, userDropdown', userDropdown);
@@ -51,11 +56,11 @@ function User() {
 
   return (
     <div className="relative" ref={UserDropdownContainerRef}>
-      {/* <div className="user-container">
-        <FaUser className="user-icon" />
-      </div> */}
+      <div className="user-container">
+        <FaUser className="user-icon" onClick={() => setLogIn(!logIn)} />
+      </div>
 
-      <div
+      {/* <div
         className="user-container"
         onClick={() => {
           userDropdownHandler();
@@ -63,7 +68,13 @@ function User() {
       >
         <FaUser className="user-icon" />
       </div>
-      {userDropdown && <Dropdown />}
+      {userDropdown && <Dropdown />} */}
+
+      {/* Sign-Up, Login Modal */}
+
+      <ModalRightToLeft showModal={logIn}>
+        <SignUpForm setClose={setLogIn} />
+      </ModalRightToLeft>
     </div>
   );
 }
