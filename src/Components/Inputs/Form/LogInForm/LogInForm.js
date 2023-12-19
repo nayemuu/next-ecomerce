@@ -44,7 +44,7 @@ function LogInForm({ setClose, setSelectedFrom }) {
                 htmlFor="email"
                 className="block text-sm font-medium leading-5 text-gray-700"
               >
-                Email address
+                Email Address
               </label>
               <div className="mt-1 relative rounded-md shadow-sm">
                 <input
@@ -80,8 +80,16 @@ function LogInForm({ setClose, setSelectedFrom }) {
             </div>
             {error && <Error message={error} />}
           </form>
+
+          <div
+            className="mt-4 font-bold ml-1 cursor-pointer text-center"
+            onClick={() => setSelectedFrom('ForgetPassword')}
+          >
+            Forget Password
+          </div>
+
           <div className="mt-4 flex justify-center">
-            Already have an account?{' '}
+            Don't have an account?
             <span
               className="font-bold ml-1 cursor-pointer"
               onClick={() => setSelectedFrom('SignUpForm')}

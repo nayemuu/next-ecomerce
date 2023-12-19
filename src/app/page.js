@@ -3,7 +3,7 @@ import Products from './Products';
 
 export default function Home() {
   return (
-    <div className="mt-[200px]">
+    <div className="mt-[50px]">
       <Products></Products>
     </div>
   );

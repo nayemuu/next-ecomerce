@@ -7,10 +7,11 @@ import { useEffect, useRef, useState } from 'react';
 import SignUpForm from '@/Components/Inputs/Form/SignUpForm/SignUpForm';
 import ModalRightToLeft from '@/Components/Modal/ModalRightToLeft';
 import LogInForm from '@/Components/Inputs/Form/LogInForm/LogInForm';
+import ForgetPassword from '@/Components/Inputs/Form/ForgetPassword/ForgetPassword';
 
 function User() {
   const [modalStatus, setModalStatus] = useState(false);
-  const [selectedFrom, setSelectedFrom] = useState('SignUpForm');
+  const [selectedFrom, setSelectedFrom] = useState('LogInForm');
 
   return (
     <div>
@@ -33,6 +34,13 @@ function User() {
 
         {selectedFrom === 'SignUpForm' && (
           <SignUpForm
+            setClose={setModalStatus}
+            setSelectedFrom={setSelectedFrom}
+          />
+        )}
+
+        {selectedFrom === 'ForgetPassword' && (
+          <ForgetPassword
             setClose={setModalStatus}
             setSelectedFrom={setSelectedFrom}
           />
