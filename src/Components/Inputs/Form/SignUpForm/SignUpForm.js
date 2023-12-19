@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { TfiClose } from 'react-icons/tfi';
 import PasswordInputField from '../PasswordInputField/PasswordInputField';
 
-function SignUpForm({ setClose }) {
+function SignUpForm({ setClose, setSelectedFrom }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -132,7 +132,13 @@ function SignUpForm({ setClose }) {
             {error && <Error message={error} />}
           </form>
           <div className="mt-4 flex justify-center">
-            Already have an account? Sign in
+            Already have an account?{' '}
+            <span
+              className="font-bold ml-1 cursor-pointer"
+              onClick={() => setSelectedFrom('LogInForm')}
+            >
+              Sign in
+            </span>
           </div>
         </div>
       </div>

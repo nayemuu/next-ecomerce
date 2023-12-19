@@ -5,6 +5,7 @@ import Cart from './Navbar Mini Components/Cart/Cart';
 import User from './Navbar Mini Components/User/User';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useState } from 'react';
+import UserLoggedIn from './Navbar Mini Components/User/UserLoggedIn';
 
 function Navbar() {
   const [smSearchBarStatus, setSmSearchBarStatus] = useState(0);
@@ -27,6 +28,7 @@ function Navbar() {
           </div>
           <Cart />
           <User />
+          {/* <UserLoggedIn /> */}
         </div>
       </div>
     </div>
