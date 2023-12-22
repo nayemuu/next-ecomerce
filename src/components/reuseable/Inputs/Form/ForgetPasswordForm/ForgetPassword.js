@@ -1,13 +1,11 @@
 'use client';
 
-import Error from '@/Components/Error/Error';
 import React, { useEffect, useState } from 'react';
 import { TfiClose } from 'react-icons/tfi';
-import PasswordInputField from '../PasswordInputField/PasswordInputField';
+import Error from '@/components/reuseable/Error/Error';
 
-function LogInForm({ setClose, setSelectedFrom }) {
+function ForgetPasswordForm({ setClose, setSelectedFrom }) {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const resetForm = () => {
@@ -38,6 +36,10 @@ function LogInForm({ setClose, setSelectedFrom }) {
         </div>
 
         <div className="bg-white p-5 shadow rounded-lg">
+          <div className="text-xl font-bold ml-1 cursor-pointer text-center">
+            Forget Password Form
+          </div>
+
           <form onSubmit={submitHandler}>
             <div className="mt-4">
               <label
@@ -61,40 +63,24 @@ function LogInForm({ setClose, setSelectedFrom }) {
             </div>
 
             <div className="mt-4">
-              <PasswordInputField
-                value={password}
-                setValue={setPassword}
-                lebel={`Password`}
-              />
-            </div>
-
-            <div className="mt-4">
               <span className="block w-full rounded-md shadow-sm">
                 <button
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-black/80 transition duration-150 ease-in-out"
                 >
-                  Log In
+                  Next
                 </button>
               </span>
             </div>
             {error && <Error message={error} />}
           </form>
-
-          <div
-            className="mt-4 font-bold ml-1 cursor-pointer text-center"
-            onClick={() => setSelectedFrom('ForgetPassword')}
-          >
-            Forget Password
-          </div>
-
           <div className="mt-4 flex justify-center">
-            Don't have an account?
+            Already have an account?{' '}
             <span
               className="font-bold ml-1 cursor-pointer"
-              onClick={() => setSelectedFrom('SignUpForm')}
+              onClick={() => setSelectedFrom('LogInForm')}
             >
-              Sign up
+              Sign in
             </span>
           </div>
         </div>
@@ -103,4 +89,4 @@ function LogInForm({ setClose, setSelectedFrom }) {
   );
 }
 
-export default LogInForm;
+export default ForgetPasswordForm;

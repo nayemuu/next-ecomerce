@@ -4,10 +4,10 @@ import { FaUser } from 'react-icons/fa';
 import './User.css';
 import Dropdown from './Dropdown/Dropdown';
 import { useEffect, useRef, useState } from 'react';
-import SignUpForm from '@/Components/Inputs/Form/SignUpForm/SignUpForm';
-import ModalRightToLeft from '@/Components/Modal/ModalRightToLeft';
-import LogInForm from '@/Components/Inputs/Form/LogInForm/LogInForm';
-import ForgetPassword from '@/Components/Inputs/Form/ForgetPassword/ForgetPassword';
+import LogInForm from '@/components/reuseable/Inputs/Form/LogInForm/LogInForm';
+import SignUpForm from '@/components/reuseable/Inputs/Form/SignUpForm/SignUpForm';
+import ModalRightToLeft from '@/components/reuseable/Modal/ModalRightToLeft';
+import ForgetPasswordForm from '@/components/reuseable/Inputs/Form/ForgetPasswordForm/ForgetPassword';
 
 function User() {
   const [modalStatus, setModalStatus] = useState(false);
@@ -40,7 +40,7 @@ function User() {
         )}
 
         {selectedFrom === 'ForgetPassword' && (
-          <ForgetPassword
+          <ForgetPasswordForm
             setClose={setModalStatus}
             setSelectedFrom={setSelectedFrom}
           />

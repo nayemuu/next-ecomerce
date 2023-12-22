@@ -1,7 +1,5 @@
-import Image from "next/image";
-import productImage from "../../public/images/Products/A52.png";
-import Card from "@/Components/Products/Card/Card";
-import CardOutOfStock from "@/Components/Products/Card/CardOutOfStock";
+import Card from '@/components/reuseable/Products/Card/Card';
+import CardOutOfStock from '@/components/reuseable/Products/Card/CardOutOfStock';
 
 function Products() {
   return (

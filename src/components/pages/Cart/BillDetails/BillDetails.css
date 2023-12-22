@@ -1,0 +1,55 @@
+/* Bill Details */
+
+.billDetailsCard {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 250px;
+  overflow: hidden;
+  border-radius: 0.375rem;
+  border-width: 1px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / 1);
+  padding: 1rem;
+}
+
+.placeOrderbtn {
+  margin-top: 1rem;
+  display: block;
+  width: 100%;
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 28 42 / 1);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.placeOrderbtn:hover {
+  background-color: rgb(23 28 42 / 0.8);
+}
+
+.placeOrderbtn:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 28 42 / 1);
+}
+
+@media (min-width: 768px) {
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:justify-end {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

@@ -1,0 +1,46 @@
+/* product description */
+.cart-list-item-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.cart-list-item-quantity {
+  color: var(--Ass, #637381);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.cart-list-item-price-box-container,
+.cart-list-item-price-container,
+.cart-list-item-discount-price-container {
+  display: flex;
+  align-items: center;
+}
+
+.cart-list-item-price-box-container {
+  gap: 10px;
+}
+
+.cart-list-item-price-taka-symbol,
+.cart-list-item-price {
+  color: var(--Pink, #d13f97);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.cart-list-item-price {
+  margin-left: 2px;
+}
+
+.cart-list-item-discount-price-taka-symbol,
+.cart-list-item-discount-price {
+  color: #b8b8b8;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+.cart-item-quantity {
+  font-size: 14px;
+  font-weight: 400;
+}

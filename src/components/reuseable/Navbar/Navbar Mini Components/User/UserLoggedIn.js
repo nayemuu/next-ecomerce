@@ -4,8 +4,6 @@ import { FaUser } from 'react-icons/fa';
 import './User.css';
 import Dropdown from './Dropdown/Dropdown';
 import { useEffect, useRef, useState } from 'react';
-import SignUpForm from '@/Components/Inputs/Form/SignUpForm/SignUpForm';
-import ModalRightToLeft from '@/Components/Modal/ModalRightToLeft';
 
 function UserLoggedIn() {
   const [userDropdown, setUserDropdown] = useState(false);

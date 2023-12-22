@@ -6,6 +6,7 @@ import User from './Navbar Mini Components/User/User';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useState } from 'react';
 import UserLoggedIn from './Navbar Mini Components/User/UserLoggedIn';
+import Link from 'next/link';
 
 function Navbar() {
   const [smSearchBarStatus, setSmSearchBarStatus] = useState(0);
@@ -13,7 +14,9 @@ function Navbar() {
   return (
     <div className="header">
       <div className="container flex items-center justify-between gap-5 relative">
-        <div className="text-xl font-bold">Logo</div>
+        <Link href={'/'}>
+          <div className="text-xl font-bold">Logo</div>
+        </Link>
 
         <SearchBar smSearchBarStatus={smSearchBarStatus} />
 
@@ -27,8 +30,8 @@ function Navbar() {
             <AiOutlineSearch className="cursor-pointer hover:text-green-500" />
           </div>
           <Cart />
-          <User />
-          {/* <UserLoggedIn /> */}
+          {/* <User /> */}
+          <UserLoggedIn />
         </div>
       </div>
     </div>

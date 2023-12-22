@@ -1,13 +1,13 @@
 'use client';
 
 import './Card.css';
-import productImage from '../../../../public/images/Products/A52.png';
+import productImage from '../../../../../public/images/Products/A52.png';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
-function Card() {
+function CardOutOfStock() {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -26,14 +26,11 @@ function Card() {
     >
       {/* shopping card */}
       <div
-        className={`absolute z-[2] top-0 shopping-card-container ${
-          isHovered ? 'right-1' : 'right-[-35px]'
+        className={`hidden absolute z-[2] top-0 shopping-card-container ${
+          isHovered ? 'right-1' : 'right-[-32px]'
         }`}
       >
-        <div
-          className="h-[35px] w-[35px] rounded-full shopping-card flex justify-center items-center bg-green-200 hover:bg-green-500 text-gray-700 hover:text-white"
-          title="add to card"
-        >
+        <div className="h-[35px] w-[35px] rounded-full shopping-card flex justify-center items-center">
           <FontAwesomeIcon icon={faCartShopping} />
         </div>
       </div>
@@ -41,8 +38,7 @@ function Card() {
       {/* discount & stock section */}
 
       <div className="flex justify-between absolute z-[1] w-full">
-        <div className="product-card-left-text bg-[#0080009e]">In Stock</div>
-        <div className="product-card-right-text">30 % OFF</div>
+        <div className="product-card-left-text bg-[#ff00009e]">Stock Out</div>
       </div>
 
       {/* main card content */}
@@ -67,4 +63,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default CardOutOfStock;
