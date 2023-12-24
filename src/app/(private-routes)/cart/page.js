@@ -6,7 +6,7 @@ export default function Cart() {
     <div className="container">
       <div className="mt-10 text-xl font-bold">Product List</div>
       <div className="mt-8">
-        <div className="grid lg:grid-cols-6 gap-[50px]">
+        <div className="grid lg:grid-cols-6 gap-[30px]">
           <div className="lg:col-span-4">
             <CartList />
           </div>
