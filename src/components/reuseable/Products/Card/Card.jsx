@@ -20,7 +20,7 @@ function Card() {
 
   return (
     <div
-      className="rounded border border-[#f2f3f8] my-2 product-card max-w-[214px] relative cursor-pointer overflow-hidden"
+      className="rounded border border-[#f2f3f8] my-2 product-card w-full min-w-[150px] relative cursor-pointer overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -47,9 +47,14 @@ function Card() {
 
       {/* main card content */}
       <div className="p-[10px]">
-        <div className="h-[228px] relative">
+        <div className="h-[228px] w-full relative">
           <div className="relative h-full w-auto rounded-t">
-            <Image fill src={productImage} className="object-scale-down" />
+            <Image
+              fill
+              src={productImage}
+              alt="productImage"
+              className="object-scale-down"
+            />
           </div>
         </div>
 
