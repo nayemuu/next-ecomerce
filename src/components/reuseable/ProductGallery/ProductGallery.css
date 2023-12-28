@@ -1,0 +1,15 @@
+/* .slick-next:before,
+.slick-prev:before {
+  content: '';
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  text-align: center;
+
+  color: black;
+} */

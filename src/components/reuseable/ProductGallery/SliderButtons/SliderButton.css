@@ -1,0 +1,42 @@
+.slider-button {
+  background: #fff;
+  box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1),
+    0 3px 1px 0 rgba(20, 23, 28, 0.1);
+
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  z-index: 2;
+}
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  box-shadow: 0 2px 8px 2px rgba(20, 23, 28, 0.15) !important;
+  background-color: #fff;
+}
+
+/* react slick default section */
+.slick-next:before,
+.slick-prev:before {
+  content: '';
+}
+
+.slider-button {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.slick-disabled {
+  display: none !important;
+}
+
+.slick-next {
+  right: -2px;
+}
+
+.slick-prev {
+  left: -2px;
+}

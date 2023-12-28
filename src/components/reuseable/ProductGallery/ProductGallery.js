@@ -1,10 +1,11 @@
 'use client';
-
-import Card from '@/components/reuseable/Products/Card/Card';
-import CardOutOfStock from '@/components/reuseable/Products/Card/CardOutOfStock';
 import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import './Products.css';
+import Card from '../Products/Card/Card';
+import CardOutOfStock from '../Products/Card/CardOutOfStock';
+import GoPrevious from './SliderButtons/GoPrevious';
+import GoNext from './SliderButtons/GoNext';
+import './ProductGallery.css';
 
 const slidesToShowCheck = (n, totalElementent) => {
   // console.log(totalElementent);
@@ -18,7 +19,7 @@ const slidesToShowCheck = (n, totalElementent) => {
   }
 };
 
-function Products() {
+function ProductGallery() {
   const [totalNumberOfProducts, setTotalNumberOfProducts] = useState(7);
   const [showSlider, setShowSlider] = useState(false);
   const [screenWidth, setScreenWidth] = useState(0);
@@ -63,6 +64,8 @@ function Products() {
     // slidesToShow: 5,
     slidesToScroll: slidesToShowCheck(6, totalNumberOfProducts),
     initialSlide: 0,
+    prevArrow: <GoPrevious />,
+    nextArrow: <GoNext />,
     responsive: [
       {
         breakpoint: (214 + 8) * 6, // (214+8) * 6 px আগ পর্যন্ত 5টা দেখাবে
@@ -106,81 +109,52 @@ function Products() {
   };
 
   return (
-    <div className="container">
-      <div className="product-container bg-white rounded py-[24px] px-[16px]">
-        <div className="border-b border-[#dee2e6] mb-4 flex items-baseline">
-          <div className="border-b-2 border-[#38b449] text-xl font-bold pb-4">
-            Mobile & Gadgets
-          </div>
-          <div className="ml-auto py-1.5 px-3 rounded text-white font-normal text-sm bg-[#38b449] hover:bg-[#28a745] transition-all cursor-pointer">
-            View More
-          </div>
+    <div>
+      {!showSlider && (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 items-center gap-[30px] place-items-center">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <CardOutOfStock />
         </div>
+      )}
 
-        {/* <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 items-center gap-[30px] place-items-center">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <CardOutOfStock />
-          <CardOutOfStock />
-        </div> */}
+      {showSlider && (
+        <Slider {...settings}>
+          <div className="px-4">
+            <Card />
+          </div>
 
-        {/* <div className="flex flex-wrap gap-3">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <CardOutOfStock />
-          <CardOutOfStock />
-        </div> */}
+          <div className="px-4">
+            <Card />
+          </div>
 
-        {!showSlider && (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 items-center gap-[30px] place-items-center">
+          <div className="px-4">
             <Card />
+          </div>
+
+          <div className="px-4">
             <Card />
+          </div>
+
+          <div className="px-4">
             <Card />
+          </div>
+
+          <div className="px-4">
             <Card />
-            <Card />
-            <Card />
+          </div>
+
+          <div className="px-4">
             <CardOutOfStock />
           </div>
-        )}
-
-        {showSlider && (
-          <Slider {...settings}>
-            <div className="px-4">
-              <Card />
-            </div>
-
-            <div className="px-4">
-              <Card />
-            </div>
-
-            <div className="px-4">
-              <Card />
-            </div>
-
-            <div className="px-4">
-              <Card />
-            </div>
-
-            <div className="px-4">
-              <Card />
-            </div>
-
-            <div className="px-4">
-              <Card />
-            </div>
-
-            <div className="px-4">
-              <CardOutOfStock />
-            </div>
-          </Slider>
-        )}
-      </div>
+        </Slider>
+      )}
     </div>
   );
 }
 
-export default Products;
+export default ProductGallery;

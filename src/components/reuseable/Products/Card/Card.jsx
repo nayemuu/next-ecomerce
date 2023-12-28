@@ -20,7 +20,7 @@ function Card() {
 
   return (
     <div
-      className="rounded border border-[#f2f3f8] my-2 product-card w-full min-w-[150px] relative cursor-pointer overflow-hidden"
+      className="rounded border border-[#f2f3f8] my-2 product-card w-full relative cursor-pointer overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -31,7 +31,7 @@ function Card() {
         }`}
       >
         <div
-          className="h-[35px] w-[35px] rounded-full shopping-card flex justify-center items-center bg-green-200 hover:bg-green-500 text-gray-700 hover:text-white"
+          className="h-[35px] w-[35px] rounded-full shopping-card flex justify-center items-center hover:bg-green-500 text-gray-700 hover:text-white add-to-cart-container"
           title="add to card"
         >
           <FontAwesomeIcon icon={faCartShopping} />
