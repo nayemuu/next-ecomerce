@@ -20,7 +20,7 @@ function CardOutOfStock() {
 
   return (
     <div
-      className="rounded border border-[#f2f3f8] my-2 product-card w-full min-w-[150px] relative cursor-pointer overflow-hidden"
+      className="rounded border border-[#f2f3f8] my-2 product-card w-full relative cursor-pointer overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

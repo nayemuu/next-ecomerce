@@ -124,33 +124,16 @@ function ProductGallery() {
 
       {showSlider && (
         <Slider {...settings}>
-          <div className="px-4">
-            <Card />
-          </div>
-
-          <div className="px-4">
-            <Card />
-          </div>
-
-          <div className="px-4">
-            <Card />
-          </div>
-
-          <div className="px-4">
-            <Card />
-          </div>
-
-          <div className="px-4">
-            <Card />
-          </div>
-
-          <div className="px-4">
-            <Card />
-          </div>
-
-          <div className="px-4">
-            <CardOutOfStock />
-          </div>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <CardOutOfStock />
         </Slider>
       )}
     </div>
