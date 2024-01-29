@@ -30,8 +30,8 @@ function Navbar() {
             <AiOutlineSearch className="cursor-pointer hover:text-green-500" />
           </div>
           <Cart />
-          {/* <User /> */}
-          <UserLoggedIn />
+          <User />
+          {/* <UserLoggedIn /> */}
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import Error from '@/components/reuseable/Error/Error';
 function ForgetPasswordForm({ setClose, setSelectedFrom }) {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+  const [isHovered, setIsHovered] = useState(false);
 
   const resetForm = () => {
     setName('');
@@ -29,10 +30,34 @@ function ForgetPasswordForm({ setClose, setSelectedFrom }) {
     <div className="flex justify-center items-center h-full w-full">
       <div className="mt-8 mx-[35px] sm:mx-auto sm:w-full max-w-sm relative">
         <div
-          className="absolute top-[-30px] right-[-30px] text-xl hover:text-red-500 cursor-pointer border-2 border-solid border-[#DCE0E4] hover:border-red-300 p-1 rounded-md"
+          className="absolute top-[-30px] right-[-30px] cursor-pointer"
           onClick={() => setClose(false)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
-          <TfiClose />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+          >
+            <rect
+              x="0.75"
+              y="0.75"
+              width="30.5"
+              height="30.5"
+              rx="4.25"
+              stroke={isHovered ? '#e10000' : '#DCE0E4'}
+              strokeWidth="1.5"
+            />
+            <path
+              d="M25 25L7 7M25 7L7 25"
+              stroke={isHovered ? '#e10000' : '#DCE0E4'}
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
         </div>
 
         <div className="bg-white p-5 shadow rounded-lg">
