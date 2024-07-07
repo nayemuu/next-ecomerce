@@ -1,0 +1,45 @@
+@supports (view-transition-name: none) {
+  ::view-transition-group(cart-dot) {
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in;
+  }
+
+  ::view-transition-old(cart-counter) {
+    animation: toDown 0.15s cubic-bezier(0.4, 0, 1, 1) both;
+  }
+
+  ::view-transition-new(cart-counter) {
+    animation: fromUp 0.15s cubic-bezier(0, 0, 0.2, 1) 0.15s both;
+  }
+}
+
+@keyframes toDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(4px);
+    opacity: 0;
+  }
+}
+
+@keyframes fromUp {
+  from {
+    transform: translateY(-3px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.product__dot {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: #00de55;
+  border-radius: 100%;
+  position: absolute;
+  z-index: -1;
+}

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import './Card.css';
-import productImage from '../../../../../public/images/Products/A52.png';
-import Image from 'next/image';
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import "./Card.css";
+import productImage from "../../../../../public/images/Products/A52.png";
+import Image from "next/image";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function Card() {
   const [isHovered, setIsHovered] = useState(false);
@@ -17,6 +17,39 @@ function Card() {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+  const addToCartAnimation = async (event) => {
+    const dot = createCartDot();
+    const parent = event.target.closest("div");
+    // console.log("parent = ", parent);
+
+    parent.append(dot);
+
+    const moveTransition = document.startViewTransition(() =>
+      moveDotToTarget(dot)
+    );
+
+    await moveTransition.finished;
+
+    dot.remove();
+    dot.style.viewTransitionName = "none";
+  };
+
+  const createCartDot = () => {
+    const dot = document.createElement("div");
+    dot.classList.add("product__dot");
+    dot.style.viewTransitionName = "cart-dot";
+    return dot;
+  };
+
+  const moveDotToTarget = (dot) => {
+    const target = document.getElementById("js-shopping-bag-target");
+    target.append(dot);
+  };
+
+  const handleCart = (e) => {
+    console.log("added to cart");
+    addToCartAnimation(e);
+  };
 
   return (
     <div
@@ -27,12 +60,13 @@ function Card() {
       {/* shopping card */}
       <div
         className={`absolute z-[2] top-0 shopping-card-container ${
-          isHovered ? 'right-1' : 'right-[-35px]'
+          isHovered ? "right-1" : "right-[-35px]"
         }`}
       >
         <div
           className="h-[35px] w-[35px] rounded-full shopping-card flex justify-center items-center hover:bg-green-500 text-gray-700 hover:text-white add-to-cart-container"
           title="add to card"
+          onClick={handleCart}
         >
           <FontAwesomeIcon icon={faCartShopping} />
         </div>
