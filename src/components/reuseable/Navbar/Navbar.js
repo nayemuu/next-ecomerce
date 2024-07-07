@@ -1,7 +1,7 @@
 'use client';
 import './Navbar.css';
 import SearchBar from './Navbar Mini Components/SearchBar/SearchBar/SearchBar';
-import Cart from './Navbar Mini Components/Cart/Cart';
+import Cart from './Navbar Mini Components/Cart2/Cart';
 import User from './Navbar Mini Components/User/User';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useState } from 'react';
