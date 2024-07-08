@@ -25,35 +25,37 @@ function Card() {
   };
 
   const addToCartAnimation = async (event) => {
-    const imgCopy = createImageCopy();
-    document.body.appendChild(imgCopy);
-
-    const imgCopyBounding = imgCopy.getBoundingClientRect();
-    // console.log("imgCopyBounding = ", imgCopyBounding);
-
     const shopping_cart = document.getElementById("js-shopping-bag-target");
-    // console.log("shopping_cart = ", shopping_cart);
-    const shoppingCartBounding = shopping_cart.getBoundingClientRect();
-    // console.log("shoppingCartBounding = ", shoppingCartBounding);
+    if (shopping_cart) {
+      const imgCopy = createImageCopy();
+      document.body.appendChild(imgCopy);
 
-    let x =
-      shopping_cart.getBoundingClientRect().x -
-      imgCopy.getBoundingClientRect().x;
+      const imgCopyBounding = imgCopy.getBoundingClientRect();
+      // console.log("imgCopyBounding = ", imgCopyBounding);
 
-    let y =
-      shopping_cart.getBoundingClientRect().y -
-      imgCopy.getBoundingClientRect().y;
+      // console.log("shopping_cart = ", shopping_cart);
+      const shoppingCartBounding = shopping_cart.getBoundingClientRect();
+      // console.log("shoppingCartBounding = ", shoppingCartBounding);
 
-    requestAnimationFrame(() => {
-      imgCopy.style.transform = `translate(${x}px, ${y}px)`;
-      imgCopy.style.width = "50px"; // Set final width
-      imgCopy.style.height = "50px"; // Set final height
-      imgCopy.style.transition = "all 0.5s ease-in-out";
-    });
+      let x =
+        shopping_cart.getBoundingClientRect().x -
+        imgCopy.getBoundingClientRect().x;
 
-    imgCopy.addEventListener("transitionend", () => {
-      imgCopy.remove();
-    });
+      let y =
+        shopping_cart.getBoundingClientRect().y -
+        imgCopy.getBoundingClientRect().y;
+
+      requestAnimationFrame(() => {
+        imgCopy.style.transform = `translate(${x}px, ${y}px)`;
+        imgCopy.style.width = "50px"; // Set final width
+        imgCopy.style.height = "50px"; // Set final height
+        imgCopy.style.transition = "all 0.5s ease-in-out";
+      });
+
+      imgCopy.addEventListener("transitionend", () => {
+        imgCopy.remove();
+      });
+    }
   };
 
   const createImageCopy = () => {
