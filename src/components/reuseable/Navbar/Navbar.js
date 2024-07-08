@@ -1,12 +1,12 @@
-'use client';
-import './Navbar.css';
-import SearchBar from './Navbar Mini Components/SearchBar/SearchBar/SearchBar';
-import Cart from './Navbar Mini Components/Cart2/Cart';
-import User from './Navbar Mini Components/User/User';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { useState } from 'react';
-import UserLoggedIn from './Navbar Mini Components/User/UserLoggedIn';
-import Link from 'next/link';
+"use client";
+import "./Navbar.css";
+import SearchBar from "./Navbar Mini Components/SearchBar/SearchBar/SearchBar";
+import Cart from "./Navbar Mini Components/Cart/Cart";
+import User from "./Navbar Mini Components/User/User";
+import { AiOutlineSearch } from "react-icons/ai";
+import { useState } from "react";
+import UserLoggedIn from "./Navbar Mini Components/User/UserLoggedIn";
+import Link from "next/link";
 
 function Navbar() {
   const [smSearchBarStatus, setSmSearchBarStatus] = useState(0);
@@ -14,7 +14,7 @@ function Navbar() {
   return (
     <div className="header">
       <div className="container flex items-center justify-between gap-5 relative">
-        <Link href={'/'}>
+        <Link href={"/"}>
           <div className="text-xl font-bold">Logo</div>
         </Link>
 
