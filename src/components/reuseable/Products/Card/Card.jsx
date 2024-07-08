@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import "./Card.css";
-import productImage from "../../../../../public/images/Products/A52.png";
-import Image from "next/image";
-import { useRef, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import './Card.css';
+import productImage from '../../../../../public/images/Products/A52.png';
+import Image from 'next/image';
+import { useRef, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 function Card() {
   const [isHovered, setIsHovered] = useState(false);
@@ -25,52 +25,35 @@ function Card() {
   };
 
   const addToCartAnimation = async (event) => {
-    const shopping_cart = document.getElementById("js-shopping-bag-target");
+    const shopping_cart = document.getElementById('js-shopping-bag-target');
     if (shopping_cart) {
-      const imgCopy = createImageCopy();
-      document.body.appendChild(imgCopy);
+      const selectedChild = createChildForCartAnimation();
 
-      const imgCopyBounding = imgCopy.getBoundingClientRect();
-      // console.log("imgCopyBounding = ", imgCopyBounding);
+      const moveTransition = document.startViewTransition(() =>
+        moveDotToTarget(selectedChild)
+      );
 
-      // console.log("shopping_cart = ", shopping_cart);
-      const shoppingCartBounding = shopping_cart.getBoundingClientRect();
-      // console.log("shoppingCartBounding = ", shoppingCartBounding);
+      await moveTransition.finished;
 
-      let x =
-        shopping_cart.getBoundingClientRect().x -
-        imgCopy.getBoundingClientRect().x;
-
-      let y =
-        shopping_cart.getBoundingClientRect().y -
-        imgCopy.getBoundingClientRect().y;
-
-      requestAnimationFrame(() => {
-        imgCopy.style.transform = `translate(${x}px, ${y}px)`;
-        imgCopy.style.width = "50px"; // Set final width
-        imgCopy.style.height = "50px"; // Set final height
-        imgCopy.style.transition = "all 0.5s ease-in-out";
-      });
-
-      imgCopy.addEventListener("transitionend", () => {
-        imgCopy.remove();
-      });
+      selectedChild.remove();
+      selectedChild.style.viewTransitionName = 'none';
     }
   };
 
-  const createImageCopy = () => {
-    const img = cardImageContainerRef.current.querySelector("img");
+  const moveDotToTarget = (dot) => {
+    const target = document.getElementById('js-shopping-bag-target');
+    target.append(dot);
+  };
+
+  const createChildForCartAnimation = () => {
+    const img = cardImageContainerRef.current.querySelector('img');
     const imgCopy = img.cloneNode(true);
-    const rect = img.getBoundingClientRect();
-
-    imgCopy.style.position = "absolute";
-    imgCopy.style.top = `${rect.top}px`;
-    imgCopy.style.left = `${rect.left}px`;
-    imgCopy.style.width = `${rect.width}px`;
-    imgCopy.style.height = `${rect.height}px`;
+    imgCopy.style.position = 'absolute';
     imgCopy.style.zIndex = 1000;
+    const selectedChild = cardImageContainerRef.current.appendChild(imgCopy);
+    selectedChild.style.viewTransitionName = 'add-to-cart';
 
-    return imgCopy;
+    return selectedChild;
   };
 
   return (
@@ -82,7 +65,7 @@ function Card() {
       {/* shopping cart */}
       <div
         className={`absolute z-[2] top-0 shopping-card-container ${
-          isHovered ? "right-1" : "right-[-35px]"
+          isHovered ? 'right-1' : 'right-[-35px]'
         }`}
       >
         <div
