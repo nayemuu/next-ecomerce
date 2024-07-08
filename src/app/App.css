@@ -1,16 +1,7 @@
 /* for cart animation */
 @supports (view-transition-name: none) {
-  ::view-transition-group(cart-dot) {
+  ::view-transition-group(add-to-cart) {
     animation-duration: 0.6s;
     animation-timing-function: ease-in;
   }
-}
-
-.product__dot {
-  width: 100%;
-  aspect-ratio: 1;
-  background-color: #00de55;
-  border-radius: 100%;
-  position: absolute;
-  z-index: -1;
 }

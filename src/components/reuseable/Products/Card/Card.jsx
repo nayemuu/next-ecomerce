@@ -1,14 +1,15 @@
-"use client";
+'use client';
 
-import "./Card.css";
-import productImage from "../../../../../public/images/Products/A52.png";
-import Image from "next/image";
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import './Card.css';
+import productImage from '../../../../../public/images/Products/A52.png';
+import Image from 'next/image';
+import { useRef, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 function Card() {
   const [isHovered, setIsHovered] = useState(false);
+  const cardImageContainerRef = useRef();
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -17,38 +18,42 @@ function Card() {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-  const addToCartAnimation = async (event) => {
-    const dot = createCartDot();
-    const parent = event.target.closest("div");
-    // console.log("parent = ", parent);
 
-    parent.append(dot);
-
-    const moveTransition = document.startViewTransition(() =>
-      moveDotToTarget(dot)
-    );
-
-    await moveTransition.finished;
-
-    dot.remove();
-    dot.style.viewTransitionName = "none";
+  const handleCart = (e) => {
+    // console.log("added to cart");
+    addToCartAnimation(e);
   };
 
-  const createCartDot = () => {
-    const dot = document.createElement("div");
-    dot.classList.add("product__dot");
-    dot.style.viewTransitionName = "cart-dot";
-    return dot;
+  const addToCartAnimation = async (event) => {
+    const shopping_cart = document.getElementById('js-shopping-bag-target');
+    if (shopping_cart) {
+      const selectedChild = createChildForCartAnimation();
+
+      const moveTransition = document.startViewTransition(() =>
+        moveDotToTarget(selectedChild)
+      );
+
+      await moveTransition.finished;
+
+      selectedChild.remove();
+      selectedChild.style.viewTransitionName = 'none';
+    }
   };
 
   const moveDotToTarget = (dot) => {
-    const target = document.getElementById("js-shopping-bag-target");
+    const target = document.getElementById('js-shopping-bag-target');
     target.append(dot);
   };
 
-  const handleCart = (e) => {
-    console.log("added to cart");
-    addToCartAnimation(e);
+  const createChildForCartAnimation = () => {
+    const img = cardImageContainerRef.current.querySelector('img');
+    const imgCopy = img.cloneNode(true);
+    imgCopy.style.position = 'absolute';
+    imgCopy.style.zIndex = 1000;
+    const selectedChild = cardImageContainerRef.current.appendChild(imgCopy);
+    selectedChild.style.viewTransitionName = 'add-to-cart';
+
+    return selectedChild;
   };
 
   return (
@@ -57,15 +62,15 @@ function Card() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* shopping card */}
+      {/* shopping cart */}
       <div
         className={`absolute z-[2] top-0 shopping-card-container ${
-          isHovered ? "right-1" : "right-[-35px]"
+          isHovered ? 'right-1' : 'right-[-35px]'
         }`}
       >
         <div
           className="h-[35px] w-[35px] rounded-full shopping-card flex justify-center items-center hover:bg-green-500 text-gray-700 hover:text-white add-to-cart-container"
-          title="add to card"
+          title="add to cart"
           onClick={handleCart}
         >
           <FontAwesomeIcon icon={faCartShopping} />
@@ -73,7 +78,6 @@ function Card() {
       </div>
 
       {/* discount & stock section */}
-
       <div className="flex justify-between absolute z-[1] w-full">
         <div className="product-card-left-text bg-[#0080009e]">In Stock</div>
         <div className="product-card-right-text">30 % OFF</div>
@@ -82,7 +86,10 @@ function Card() {
       {/* main card content */}
       <div className="p-[10px]">
         <div className="h-[228px] w-full relative">
-          <div className="relative h-full w-auto rounded-t">
+          <div
+            className="relative h-full w-auto rounded-t"
+            ref={cardImageContainerRef}
+          >
             <Image
               fill
               src={productImage}
