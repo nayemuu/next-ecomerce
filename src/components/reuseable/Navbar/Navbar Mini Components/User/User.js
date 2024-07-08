@@ -4,10 +4,10 @@ import { FaUser } from 'react-icons/fa';
 import './User.css';
 import Dropdown from './Dropdown/Dropdown';
 import { useEffect, useRef, useState } from 'react';
-import LogInForm from '@/components/reuseable/Inputs/Form/LogInForm/LogInForm';
 import SignUpForm from '@/components/reuseable/Inputs/Form/SignUpForm/SignUpForm';
 import ModalRightToLeft from '@/components/reuseable/Modal/ModalRightToLeft';
 import ForgetPasswordForm from '@/components/reuseable/Inputs/Form/ForgetPasswordForm/ForgetPassword';
+import LogInForm from '@/components/reuseable/Forms/LogInForm/LogInForm';
 
 function User() {
   const [modalStatus, setModalStatus] = useState(false);
