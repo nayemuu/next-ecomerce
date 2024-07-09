@@ -34,12 +34,7 @@ function Card() {
       );
 
       await moveTransition.finished;
-
-      console.log("1. selectedChild = ", selectedChild);
-
       await selectedChild.remove();
-
-      // console.log("2. selectedChild = ", selectedChild);
     }
   };
 
