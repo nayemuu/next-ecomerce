@@ -1,15 +1,15 @@
-'use client';
-import { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import Card from '../Products/Card/Card';
-import CardOutOfStock from '../Products/Card/CardOutOfStock';
-import GoPrevious from './SliderButtons/GoPrevious';
-import GoNext from './SliderButtons/GoNext';
-import './ProductGallery.css';
+"use client";
+import { useEffect, useState } from "react";
+import Slider from "react-slick";
+import Card from "../Products/Card/Card";
+import CardOutOfStock from "../Products/Card/CardOutOfStock";
+import GoPrevious from "./SliderButtons/GoPrevious";
+import GoNext from "./SliderButtons/GoNext";
+import "./ProductGallery.css";
 
 const slidesToShowCheck = (n, totalElementent) => {
   // console.log(totalElementent);
-  if (totalElementent !== '') {
+  if (totalElementent !== "") {
     // return n;
     if (totalElementent > n) {
       // console.log(n);
@@ -49,10 +49,10 @@ function ProductGallery() {
 
   useEffect(() => {
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -110,7 +110,7 @@ function ProductGallery() {
 
   return (
     <div>
-      {!showSlider && (
+      {/* {!showSlider && (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 items-center gap-[30px] place-items-center">
           <Card />
           <Card />
@@ -135,7 +135,11 @@ function ProductGallery() {
           <Card />
           <CardOutOfStock />
         </Slider>
-      )}
+      )} */}
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 items-center gap-[30px] place-items-center">
+        <Card />
+      </div>
     </div>
   );
 }

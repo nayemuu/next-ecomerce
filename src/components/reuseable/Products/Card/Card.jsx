@@ -35,8 +35,11 @@ function Card() {
 
       await moveTransition.finished;
 
-      selectedChild.remove();
-      selectedChild.style.viewTransitionName = "none";
+      console.log("1. selectedChild = ", selectedChild);
+
+      await selectedChild.remove();
+
+      // console.log("2. selectedChild = ", selectedChild);
     }
   };
 
