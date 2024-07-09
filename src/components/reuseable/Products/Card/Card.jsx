@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import './Card.css';
-import productImage from '../../../../../public/images/Products/A52.png';
-import Image from 'next/image';
-import { useRef, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import "./Card.css";
+import productImage from "../../../../../public/images/Products/A52.png";
+import Image from "next/image";
+import { useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function Card() {
   const [isHovered, setIsHovered] = useState(false);
@@ -25,33 +25,33 @@ function Card() {
   };
 
   const addToCartAnimation = async (event) => {
-    const shopping_cart = document.getElementById('js-shopping-bag-target');
+    const shopping_cart = document.getElementById("js-shopping-bag-target");
     if (shopping_cart) {
       const selectedChild = createChildForCartAnimation();
 
       const moveTransition = document.startViewTransition(() =>
-        moveDotToTarget(selectedChild)
+        moveToTarget(selectedChild)
       );
 
       await moveTransition.finished;
 
       selectedChild.remove();
-      selectedChild.style.viewTransitionName = 'none';
+      selectedChild.style.viewTransitionName = "none";
     }
   };
 
-  const moveDotToTarget = (dot) => {
-    const target = document.getElementById('js-shopping-bag-target');
+  const moveToTarget = (dot) => {
+    const target = document.getElementById("js-shopping-bag-target");
     target.append(dot);
   };
 
   const createChildForCartAnimation = () => {
-    const img = cardImageContainerRef.current.querySelector('img');
+    const img = cardImageContainerRef.current.querySelector("img");
     const imgCopy = img.cloneNode(true);
-    imgCopy.style.position = 'absolute';
+    imgCopy.style.position = "absolute";
     imgCopy.style.zIndex = 1000;
     const selectedChild = cardImageContainerRef.current.appendChild(imgCopy);
-    selectedChild.style.viewTransitionName = 'add-to-cart';
+    selectedChild.style.viewTransitionName = "add-to-cart";
 
     return selectedChild;
   };
@@ -65,7 +65,7 @@ function Card() {
       {/* shopping cart */}
       <div
         className={`absolute z-[2] top-0 shopping-card-container ${
-          isHovered ? 'right-1' : 'right-[-35px]'
+          isHovered ? "right-1" : "right-[-35px]"
         }`}
       >
         <div
