@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 
 function Cart() {
-  const [totalCartItem, setTotalCartItem] = useState(0);
+  const [totalCartItems, setTotalCartItems] = useState(0);
   const { count } = useSelector((state) => state.cart);
   const counterRef = useRef();
 
@@ -16,7 +16,7 @@ function Cart() {
       counterRef.current.style.viewTransitionName = "cart-counter";
 
       const counterTransition = document.startViewTransition(() => {
-        incrementCounter();
+        incrementCounterForCounterAnimation();
       });
 
       await counterTransition.finished;
@@ -24,15 +24,16 @@ function Cart() {
     }
   };
 
-  function incrementCounter() {
-    counterRef.current.innerText = count;
+  function incrementCounterForCounterAnimation() {
+    // counterRef.current.innerText = count;
+    setTotalCartItems(count);
   }
 
   useEffect(() => {
     if (document?.startViewTransition) {
       cartCounterAnimation();
     } else {
-      setTotalCartItem(count);
+      setTotalCartItems(count);
     }
   }, [count]);
 
@@ -44,7 +45,7 @@ function Cart() {
   return (
     <Link href={"/cart"} className="cart-container" id="js-shopping-bag-target">
       <div className="cart-container-items">
-        <span ref={counterRef}>{totalCartItem}</span>
+        <span ref={counterRef}>{totalCartItems}</span>
       </div>
       <BiShoppingBag className="cart-icon" />
     </Link>

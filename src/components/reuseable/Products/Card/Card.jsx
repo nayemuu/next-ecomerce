@@ -14,14 +14,6 @@ function Card() {
   const cardImageContainerRef = useRef();
   const dispatch = useDispatch();
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   const handleCart = async (e) => {
     // console.log("added to cart");
 
@@ -62,8 +54,8 @@ function Card() {
   return (
     <div
       className="rounded border border-[#f2f3f8] my-2 product-card w-full relative cursor-pointer overflow-hidden"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* shopping cart */}
       <div
