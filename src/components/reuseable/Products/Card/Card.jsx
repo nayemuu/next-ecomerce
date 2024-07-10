@@ -6,10 +6,13 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { incrementQuantity } from "@/redux/features/cart/cartSlice";
 
 function Card() {
   const [isHovered, setIsHovered] = useState(false);
   const cardImageContainerRef = useRef();
+  const dispatch = useDispatch();
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -19,9 +22,11 @@ function Card() {
     setIsHovered(false);
   };
 
-  const handleCart = (e) => {
+  const handleCart = async (e) => {
     // console.log("added to cart");
-    addToCartAnimation(e);
+
+    await addToCartAnimation(e);
+    dispatch(incrementQuantity());
   };
 
   const addToCartAnimation = async (event) => {
