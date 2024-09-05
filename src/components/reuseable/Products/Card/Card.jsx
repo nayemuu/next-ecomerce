@@ -31,7 +31,7 @@ function Card() {
       document.body.appendChild(imgCopy);
 
       const imgCopyBounding = imgCopy.getBoundingClientRect();
-      // console.log("imgCopyBounding = ", imgCopyBounding);
+      console.log("imgCopyBounding = ", imgCopyBounding);
 
       // console.log("shopping_cart = ", shopping_cart);
       const shoppingCartBounding = shopping_cart.getBoundingClientRect();
@@ -63,8 +63,11 @@ function Card() {
     const imgCopy = img.cloneNode(true);
     const rect = img.getBoundingClientRect();
 
+    console.log("img = ", img);
+    console.log("rect = ", rect);
+
     imgCopy.style.position = "absolute";
-    imgCopy.style.top = `${rect.top}px`;
+    imgCopy.style.top = `${rect.top + window.scrollY}px`;
     imgCopy.style.left = `${rect.left}px`;
     imgCopy.style.width = `${rect.width}px`;
     imgCopy.style.height = `${rect.height}px`;
