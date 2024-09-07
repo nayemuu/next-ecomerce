@@ -51,6 +51,7 @@ function Card() {
         imgCopy.style.height = "50px"; // Set final height
         imgCopy.style.transition = "all 0.5s ease-in-out";
       });
+      //requestAnimationFrame() is a built-in JavaScript function used to perform animations in the browser.
 
       imgCopy.addEventListener("transitionend", () => {
         imgCopy.remove();
